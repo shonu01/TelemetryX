@@ -16,6 +16,7 @@ import fastf1
 import pandas as pd
 
 from preprocess import preprocess_laps
+from visualize import plot_lap_times
 
 # enable cache to make loading faster
 fastf1.Cache.enable_cache('data')
@@ -45,10 +46,13 @@ def main():
 
     clean_laps = preprocess_laps(laps)
     
-    print("Session loaded successfully")
+    """print("Session loaded successfully")
     print("Total laps:", len(clean_laps))
-    print(clean_laps.head())
+    print(clean_laps.head())"""
 
+    clean_laps = preprocess_laps(laps)
+
+    plot_lap_times(clean_laps)
 
 if __name__ == "__main__":
     main()
